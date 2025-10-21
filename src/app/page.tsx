@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -51,24 +52,37 @@ export default function HomePage() {
       <main>
         {/* Hero Section */}
         <section className="relative h-[600px] overflow-hidden bg-gradient-to-br from-[#1E3A8A] to-[#2563EB]">
-          <div className="relative container mx-auto px-4 h-full flex items-center">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/generated/hero-medical-background.png"
+              alt="Medical technology background"
+              fill
+              className="object-cover opacity-30"
+              priority
+              sizes="100vw"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
             <div className="max-w-2xl text-white">
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-white">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight text-white">
                 Innovating Healthcare for Qatar
               </h1>
-              <p className="text-xl mb-8 text-white/95">
+              <p className="text-lg sm:text-xl mb-8 text-white/95">
                 Your Trusted Partner in Medical Technology Distribution
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/catalog"
-                  className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-8 py-3 rounded-lg font-semibold uppercase text-sm tracking-wide transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                  className="bg-[#3B82F6] hover:bg-[#2563EB] text-white px-6 sm:px-8 py-3 rounded-lg font-semibold uppercase text-sm tracking-wide transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                 >
                   Explore Products
                 </Link>
                 <Link
                   href="/quote"
-                  className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-8 py-3 rounded-lg font-semibold uppercase text-sm tracking-wide transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                  className="bg-[#DC2626] hover:bg-[#B91C1C] text-white px-6 sm:px-8 py-3 rounded-lg font-semibold uppercase text-sm tracking-wide transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                 >
                   Learn More
                 </Link>
@@ -148,12 +162,48 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Content */}
-              <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-[#F9FAFB] to-[#E5E7EB] flex items-center justify-center p-12">
-                <div className="text-center">
-                  <div className="text-8xl mb-6 text-[#8B1538]">🏥</div>
-                  <h4 className="text-2xl font-bold text-[#1E3A8A] mb-4">Excellence in Healthcare</h4>
-                  <p className="text-gray-600 text-lg">Certified medical equipment for modern facilities</p>
+              {/* Right Content - Professional Healthcare Images */}
+              <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-xl">
+                {/* Main Featured Image */}
+                <div className="relative h-full w-full">
+                  <Image
+                    src="/generated/healthcare-equipment-main.png"
+                    alt="Modern medical facility with state-of-the-art diagnostic equipment including MRI and CT scanners"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  {/* Overlay with gradient for better text visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/80 via-[#1E3A8A]/40 to-transparent"></div>
+
+                  {/* Text Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 text-white">
+                    <h4 className="text-xl sm:text-2xl font-bold mb-2 text-white">Excellence in Healthcare</h4>
+                    <p className="text-white/95 text-base sm:text-lg">Certified medical equipment for modern facilities</p>
+                  </div>
+                </div>
+
+                {/* Secondary Images Grid - Top Right Corner */}
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex gap-2">
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg overflow-hidden shadow-lg border-2 border-white hover:scale-110 transition-transform duration-300 cursor-pointer">
+                    <Image
+                      src="/generated/medical-imaging-equipment.png"
+                      alt="Advanced medical imaging equipment"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
+                    />
+                  </div>
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg overflow-hidden shadow-lg border-2 border-white hover:scale-110 transition-transform duration-300 cursor-pointer">
+                    <Image
+                      src="/generated/healthcare-professionals.png"
+                      alt="Healthcare professionals providing patient care"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
