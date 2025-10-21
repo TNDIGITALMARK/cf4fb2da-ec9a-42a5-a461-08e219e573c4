@@ -1,40 +1,96 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+=============================================================================
+QATAR MEDICAL SOLUTIONS - DESIGN SYSTEM
+=============================================================================
+Professional biomedical equipment distributor website
+Pixel-perfect replication of medical-grade aesthetic
+Based on Q-MED Devices reference design
+=============================================================================
 */
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  /* === MEDICAL BRAND COLORS (HSL Format) === */
+  /* Extracted from design reference for exact replication */
 
+  /* Primary Brand Colors */
+  --brand-maroon: 345 76% 32%;        /* #8B1538 - Logo, accents, icons */
+  --brand-navy: 221 66% 33%;          /* #1E3A8A - Headings, primary text */
+  --brand-blue: 217 91% 60%;          /* #3B82F6 - Primary CTA buttons */
+  --brand-red: 0 84% 51%;             /* #DC2626 - Secondary CTA buttons */
+
+  /* Background & Surface Colors */
+  --background: 0 0% 100%;            /* #FFFFFF - Pure white */
+  --surface-gray: 210 20% 98%;        /* #F9FAFB - Card backgrounds */
+  --border-light: 220 13% 91%;        /* #E5E7EB - Borders, dividers */
+
+  /* Text Colors */
+  --text-primary: 218 23% 23%;        /* #1F2937 - Body text */
+  --text-secondary: 220 9% 46%;       /* #6B7280 - Descriptions */
+  --text-muted: 215 16% 47%;          /* #71717A - Muted text */
+
+  /* Semantic Colors for Medical Context */
+  --foreground: 218 23% 23%;
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-
+  --card-foreground: 218 23% 23%;
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 218 23% 23%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  --primary: 221 66% 33%;             /* Navy for primary actions */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217 91% 60%;           /* Blue for secondary actions */
+  --secondary-foreground: 0 0% 100%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 345 76% 32%;              /* Maroon for accents */
+  --accent-foreground: 0 0% 100%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 20% 98%;
+  --muted-foreground: 220 9% 46%;
 
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 84% 51%;
+  --destructive-foreground: 0 0% 100%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 221 66% 33%;
 
-  --radius: 0.5rem;
+  /* === SPACING SYSTEM === */
+  /* Exact measurements from design reference */
+  --section-padding: 5rem;            /* 80px vertical spacing */
+  --card-padding: 2rem;               /* 32px internal padding */
+  --card-gap: 1.5rem;                 /* 24px between cards */
 
+  /* === BORDER RADIUS === */
+  --radius-sm: 0.25rem;               /* 4px */
+  --radius-md: 0.5rem;                /* 8px - Cards, buttons */
+  --radius-lg: 0.75rem;               /* 12px */
+  --radius: 0.5rem;                   /* Default 8px */
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* === TYPOGRAPHY SCALE === */
+  /* Font sizes matching design reference */
+  --font-size-hero: 3rem;             /* 48px - Hero heading */
+  --font-size-h1: 2.5rem;             /* 40px */
+  --font-size-h2: 2rem;               /* 32px */
+  --font-size-h3: 1.5rem;             /* 24px - Section headings */
+  --font-size-h4: 1.25rem;            /* 20px */
+  --font-size-base: 1rem;             /* 16px - Body text */
+  --font-size-sm: 0.875rem;           /* 14px - Card titles */
+  --font-size-xs: 0.75rem;            /* 12px */
+
+  /* === FONT FAMILIES === */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Sidebar (if needed) */
   --sidebar-background: 0 0% 98%;
   --sidebar-foreground: 240 5.3% 26.1%;
   --sidebar-primary: 240 5.9% 10%;
@@ -153,11 +209,187 @@ All colors MUST be HSL.
   }
 }
 
+/*
+=============================================================================
+BASE STYLES & RESETS
+=============================================================================
+*/
+
 * {
+  box-sizing: border-box;
   border-color: hsl(var(--border));
 }
 
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-weight: 400;
+}
+
+/*
+=============================================================================
+TYPOGRAPHY DEFAULTS
+=============================================================================
+Professional medical-grade typography matching design reference
+*/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: hsl(var(--brand-navy));
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: hsl(var(--text-primary));
+}
+
+a {
+  color: hsl(var(--brand-blue));
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: hsl(var(--brand-navy));
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+small {
+  font-size: var(--font-size-sm);
+}
+
+/*
+=============================================================================
+BUTTON DEFAULTS
+=============================================================================
+Medical-grade button styling from design reference
+*/
+
+button {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-sm);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/*
+=============================================================================
+FORM ELEMENT DEFAULTS
+=============================================================================
+*/
+
+input, textarea, select {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  color: hsl(var(--text-primary));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: hsl(var(--background));
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--brand-blue));
+  box-shadow: 0 0 0 3px hsla(var(--brand-blue) / 0.1);
+}
+
+label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: hsl(var(--text-primary));
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/*
+=============================================================================
+UTILITY CLASSES
+=============================================================================
+*/
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-padding {
+  padding: var(--section-padding) 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

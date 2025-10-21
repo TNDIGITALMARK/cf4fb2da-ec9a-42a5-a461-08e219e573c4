@@ -18,8 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Qatar Medical Solutions - Biomedical Equipment Distributor | Q-MED Devices",
+  description: "Premier biomedical equipment distributor in Qatar. Certified medical devices, diagnostic imaging, laboratory equipment, and surgical instruments from leading manufacturers. ISO 13485 certified.",
+  keywords: "biomedical equipment Qatar, medical devices Doha, diagnostic imaging, laboratory equipment, surgical instruments, MRI Qatar, CT scanner, healthcare equipment",
 };
 
 export default function RootLayout({
