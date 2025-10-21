@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import Header from '@/components/Header';
@@ -24,7 +23,6 @@ export default function CatalogPage() {
       name: 'MRI System 3.0T',
       division: 'imaging',
       manufacturer: 'Philips Healthcare',
-      image: '/generated/hero-medical-equipment.png',
       description: 'Advanced 3.0 Tesla MRI system with superior image quality',
       certifications: ['CE', 'ISO', 'QMH'],
     },
@@ -33,7 +31,6 @@ export default function CatalogPage() {
       name: 'CT Scanner 64-Slice',
       division: 'imaging',
       manufacturer: 'GE Medical',
-      image: '/generated/hero-medical-equipment.png',
       description: 'High-speed 64-slice CT scanner for comprehensive diagnostics',
       certifications: ['CE', 'ISO', 'QMH'],
     },
@@ -42,7 +39,6 @@ export default function CatalogPage() {
       name: 'Ultrasound System Premium',
       division: 'imaging',
       manufacturer: 'Siemens Healthineers',
-      image: '/generated/hero-medical-equipment.png',
       description: 'Portable ultrasound with advanced imaging capabilities',
       certifications: ['CE', 'ISO'],
     },
@@ -51,7 +47,6 @@ export default function CatalogPage() {
       name: 'Automated Blood Analyzer',
       division: 'laboratory',
       manufacturer: 'Roche Diagnostics',
-      image: '/generated/hero-medical-equipment.png',
       description: 'High-throughput automated hematology analyzer',
       certifications: ['CE', 'ISO', 'QMH'],
     },
@@ -60,7 +55,6 @@ export default function CatalogPage() {
       name: 'Digital Microscopy System',
       division: 'laboratory',
       manufacturer: 'Olympus Medical',
-      image: '/generated/hero-medical-equipment.png',
       description: 'Advanced digital microscope for laboratory diagnostics',
       certifications: ['CE', 'ISO'],
     },
@@ -69,7 +63,6 @@ export default function CatalogPage() {
       name: 'Laboratory Centrifuge',
       division: 'laboratory',
       manufacturer: 'Eppendorf',
-      image: '/generated/hero-medical-equipment.png',
       description: 'High-performance centrifuge for clinical laboratories',
       certifications: ['CE', 'ISO'],
     },
@@ -78,7 +71,6 @@ export default function CatalogPage() {
       name: 'Complete OR Package',
       division: 'surgical',
       manufacturer: 'Various Premium Brands',
-      image: '/generated/hero-medical-equipment.png',
       description: 'Comprehensive surgical instrument package for operating rooms',
       certifications: ['CE', 'ISO', 'QMH'],
     },
@@ -87,7 +79,6 @@ export default function CatalogPage() {
       name: 'Minimally Invasive Surgical Tools',
       division: 'surgical',
       manufacturer: 'Stryker',
-      image: '/generated/hero-medical-equipment.png',
       description: 'Precision instruments for laparoscopic procedures',
       certifications: ['CE', 'ISO'],
     },
@@ -96,7 +87,6 @@ export default function CatalogPage() {
       name: 'Patient Monitor Multi-Parameter',
       division: 'monitoring',
       manufacturer: 'Philips Healthcare',
-      image: '/generated/hero-medical-equipment.png',
       description: 'Comprehensive vital signs monitoring system',
       certifications: ['CE', 'ISO', 'QMH'],
     },
@@ -158,14 +148,15 @@ export default function CatalogPage() {
                   key={item.id}
                   className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
-                  {/* Equipment Image */}
-                  <div className="relative h-56 bg-gray-100">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                    />
+                  {/* Equipment Icon */}
+                  <div className="relative h-56 bg-gradient-to-br from-[#F9FAFB] to-[#E5E7EB] flex items-center justify-center">
+                    <div className="text-7xl">
+                      {item.division === 'imaging' && '🔬'}
+                      {item.division === 'laboratory' && '🧪'}
+                      {item.division === 'surgical' && '🔧'}
+                      {item.division === 'monitoring' && '💉'}
+                      {item.division === 'rehabilitation' && '⚙️'}
+                    </div>
                   </div>
 
                   {/* Equipment Details */}

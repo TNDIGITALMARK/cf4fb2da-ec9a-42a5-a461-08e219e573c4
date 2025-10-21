@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -51,18 +50,7 @@ export default function HomePage() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative h-[600px] overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/generated/hero-medical-equipment.png"
-              alt="Modern medical facility"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1E3A8A]/90 to-[#1E3A8A]/70"></div>
-          </div>
-
+        <section className="relative h-[600px] overflow-hidden bg-gradient-to-br from-[#1E3A8A] to-[#2563EB]">
           <div className="relative container mx-auto px-4 h-full flex items-center">
             <div className="max-w-2xl text-white">
               <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-white">
@@ -160,14 +148,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Image */}
-              <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
-                <Image
-                  src="/generated/healthcare-team.png"
-                  alt="Healthcare team"
-                  fill
-                  className="object-cover"
-                />
+              {/* Right Content */}
+              <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-[#F9FAFB] to-[#E5E7EB] flex items-center justify-center p-12">
+                <div className="text-center">
+                  <div className="text-8xl mb-6 text-[#8B1538]">🏥</div>
+                  <h4 className="text-2xl font-bold text-[#1E3A8A] mb-4">Excellence in Healthcare</h4>
+                  <p className="text-gray-600 text-lg">Certified medical equipment for modern facilities</p>
+                </div>
               </div>
             </div>
           </div>
